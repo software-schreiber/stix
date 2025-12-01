@@ -6,41 +6,27 @@ public class FourDigitCodeGenerator {
 
 	private static final int MAX_CODES = 10000;
 
-	public Code newCode() {
-		int value = generateCode();
-		return new Code(String.valueOf(value), value);
+	public FourDigitCode newCode() {
+		return new FourDigitCode(new Random().nextInt(MAX_CODES));
 	}
 
-	private int generateCode() {
-		return new Random().nextInt(MAX_CODES);
-	}
+	public class FourDigitCode {
 
-	public class Code {
-
-		private final String name;
 		private final int value;
 
-		public String getName() {
-			return name;
+		public String getValueAsString() {
+			return String.valueOf(value);
 		}
 
 		public int getValue() {
 			return value;
 		}
 
-		Code(String name, int value) {
-			this.name = name;
-			this.value = value;
-			verifyCode();
-		}
-
-		private void verifyCode() {
-			if (name == null || name.trim().isEmpty()) {
-				throw new IllegalArgumentException("Invalid code name.");
-			}
+		FourDigitCode(int value) {
 			if (value < 0 || value > 9999) {
 				throw new IllegalArgumentException("Invalid code value.");
 			}
+			this.value = value;
 		}
 	}
 }
