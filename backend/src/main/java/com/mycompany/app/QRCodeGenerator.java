@@ -2,7 +2,6 @@ package com.mycompany.app;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
-import java.nio.file.Path;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
