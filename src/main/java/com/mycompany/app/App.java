@@ -12,12 +12,9 @@ import com.google.zxing.qrcode.QRCodeWriter;
 
 public class App {
     public static void main(String[] args) {
-        QRCodeGenerator qrCodeGenerator = new QRCodeGenerator("www.google.com", "google");
-        try {
-            qrCodeGenerator.saveQRCode();
-        } catch (WriterException | IOException e) {
-            e.printStackTrace();
-        }
+        QRCodeGenerator qrCodeGenerator = new QRCodeGenerator("www.youtube.com");
+        qrCodeGenerator.saveQRCode();
+        IO.println(new FourDigitCodeGenerator().newCode().getName());
     }
 
 }
