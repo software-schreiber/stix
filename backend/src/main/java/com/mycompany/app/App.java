@@ -1,10 +1,11 @@
 package com.mycompany.app;
 
+import com.mycompany.app.Sticker.StickerGenerator;
 
 public class App {
     public static void main(String[] args) {
-        QRCodeGenerator qrCodeGenerator = new QRCodeGenerator("www.youtube.com");
-        qrCodeGenerator.saveQRCode();
-        IO.println(new FourDigitCodeGenerator().newCode());
+        StickerGenerator stickerGenerator = new StickerGenerator("www.example.com");
+        stickerGenerator.getSticker().getQrCodeGenerator().saveQRCode();
+        IO.println(stickerGenerator.getSticker().getFourDigitCode());
     }
 }
